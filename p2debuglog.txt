@@ -1,0 +1,92 @@
+(gdb) b main
+Breakpoint 1 at 0x826: file p2original.c, line 25.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2original.c:25
+25    x=input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter any value\n");
+(gdb) n
+enter any value
+6     scanf("%d", &a);
+(gdb) n
+12
+7     return a;
+(gdb) n
+8   }
+(gdb) p a
+$1 = 12
+(gdb) n
+main () at p2original.c:26
+26    y=input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter any value\n");
+(gdb) n
+enter any value
+6     scanf("%d", &a);
+(gdb) n
+13
+7     return a;
+(gdb) n
+8   }
+(gdb) p a
+$2 = 13
+(gdb) n
+main () at p2original.c:27
+27    z=input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter any value\n");
+(gdb) n
+enter any value
+6     scanf("%d", &a);
+(gdb) n
+14
+7     return a;
+(gdb) n
+8   }
+(gdb) p a
+$3 = 14
+(gdb) n
+main () at p2original.c:28
+28    l=cmp(x,y,z);
+(gdb) s
+cmp (a=12, b=13, c=14) at p2original.c:11
+11    if (a>b && a>c)
+(gdb) n
+13    else if (b>a && b>c)
+(gdb) n
+16    return c;
+(gdb) n
+17  }
+(gdb) p c
+$4 = 14
+(gdb) n
+main () at p2original.c:29
+29    output(l);
+(gdb) s
+output (l=14) at p2original.c:20
+20    printf("the largest number is %d", l);
+(gdb) n
+21  }
+(gdb) p l
+$5 = 14
+(gdb) n
+main () at p2original.c:30
+30    return 0;
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 165] will be killed.
+
+Quit anyway? (y or n) y
